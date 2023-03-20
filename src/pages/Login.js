@@ -23,7 +23,7 @@ const Login = () => {
             <Input type="password" required />
           </Form.Item> 
           <Link to="/register" className='m-2'>Not a User Register here</Link>
-          <button className='btn btn-primary' type='submit'>Loin</button>
+          <button className='btn btn-primary' type='submit'>Login</button>
         </Form>
       </div>
     </>
