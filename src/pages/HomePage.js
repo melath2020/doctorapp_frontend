@@ -13,7 +13,7 @@ const HomePage = () => {
         }
       })
     }catch(error){
-
+        console.log(error)
     }
   }
 
