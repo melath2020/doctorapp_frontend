@@ -1,4 +1,4 @@
-export const SidebarMenu=[
+export const UserMenu=[
     {
         name:'Home',
         path:'/',
@@ -19,9 +19,32 @@ export const SidebarMenu=[
         path:'/profile',
         icon:'fa-solid fa-user'
     },
+  
+]
+
+// admin-menu
+
+export const AdminMenu=[
     {
-        name:'Logout',
-        path:'/logout',
-        icon:'fa-solid fa-right-from-bracket'
+        name:'Home',
+        path:'/',
+        icon:'fa-sharp fa-regular fa-house'
     },
+    
+    {
+        name:'Doctors',
+        path:'/doctors',
+        icon:'fa-solid fa-user-doctor'
+    },
+    {
+        name:'Users',
+        path:'/users',
+        icon:'fa-solid fa-user'
+    },
+    {
+        name:'Profile',
+        path:'/profile',
+        icon:'fa-solid fa-user'
+    },
+   
 ]

@@ -3,6 +3,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute';
 import PublicRoute from './components/PublicRoute';
 import Spinner from './components/Spinner';
+import ApplyDoctor from './pages/ApplyDoctor';
 import HomePage from './pages/HomePage';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -19,6 +20,12 @@ function App() {
     element={
     <ProtectedRoute>
       <HomePage/>
+    </ProtectedRoute>
+   }/>
+    <Route path='/apply-doctor' 
+    element={
+    <ProtectedRoute>
+      <ApplyDoctor/>
     </ProtectedRoute>
    }/>
     <Route path='/login' element={
