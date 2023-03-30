@@ -12,11 +12,12 @@ const ApplyDoctor = () => {
     const dispatch=useDispatch();
     const navigate=useNavigate()
     const handleFinish = async(values)=>{
+        console.log(values)
         try{
             dispatch(showLoading())
-            const res = await axios.post('http://localhost:8000/api/v1/user/apply-doctor',{...values,userId:user._id},{
+            const res = await axios.post('http://localhost:8000/api/v1/user/apply-doctor',{...values, userId:user._id},{
                 headers:{
-                    Authorization:`Bearer ${localStorage.getItem}`
+                    Authorization:`Bearer ${localStorage.getItem('token')}`
                 }
             })
             dispatch(hideLoading())
@@ -118,12 +119,12 @@ const ApplyDoctor = () => {
 
                </Col>
 
-               <Col xs={24} md={24} lg={8}>
-                   <Form.Item label="Timings" name="timings" required>
+               {/* <Col xs={24} md={24} lg={8}>
+                   <Form.Item label="Timings" name="timings">
                     <TimePicker.RangePicker use12Hours format="HH:mm"/>
                    </Form.Item>
 
-               </Col>
+               </Col> */}
                <Col xs={24} md={24} lg={8}>
                
                

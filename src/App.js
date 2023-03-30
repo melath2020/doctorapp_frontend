@@ -3,9 +3,12 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute';
 import PublicRoute from './components/PublicRoute';
 import Spinner from './components/Spinner';
+import Doctors from './pages/admin/Doctors';
+import Users from './pages/admin/Users';
 import ApplyDoctor from './pages/ApplyDoctor';
 import HomePage from './pages/HomePage';
 import Login from './pages/Login';
+import Notification from './pages/Notification';
 import Register from './pages/Register';
 
 
@@ -26,6 +29,26 @@ function App() {
     element={
     <ProtectedRoute>
       <ApplyDoctor/>
+    </ProtectedRoute>
+   }/>
+
+<Route path='/admin/doctors' 
+    element={
+    <ProtectedRoute>
+      <Doctors/>
+    </ProtectedRoute>
+   }/>
+
+<Route path='/admin/users' 
+    element={
+    <ProtectedRoute>
+      <Users/>
+    </ProtectedRoute>
+   }/>
+   <Route path='/notification' 
+    element={
+    <ProtectedRoute>
+      <Notification/>
     </ProtectedRoute>
    }/>
     <Route path='/login' element={
