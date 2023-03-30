@@ -1,11 +1,36 @@
 
 import React from 'react'
 import Layout from '../components/Layout';
-import { Col, Form, Input, Row, TimePicker } from 'antd';
+import { Col, Form, Input, message, Row, TimePicker } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { showLoading ,hideLoading} from '../redux/features/alertSlice';
+import axios from 'axios';
 
 const ApplyDoctor = () => {
-    const handleFinish = (values)=>{
-        console.log(values)
+    const {user}= useSelector(state=>state.user)
+    const dispatch=useDispatch();
+    const navigate=useNavigate()
+    const handleFinish = async(values)=>{
+        try{
+            dispatch(showLoading())
+            const res = await axios.post('http://localhost:8000/api/v1/user/apply-doctor',{...values,userId:user._id},{
+                headers:{
+                    Authorization:`Bearer ${localStorage.getItem}`
+                }
+            })
+            dispatch(hideLoading())
+            if(res.data.success){
+                message.success(res.data.success)
+                navigate('/')
+            }else{
+                message.error(res.data.success)
+            }
+        }catch(error){
+            dispatch(hideLoading())
+            console.log(error)
+            message.error('Something went wrong')
+        }
     }
   return (
     <Layout>
@@ -94,19 +119,22 @@ const ApplyDoctor = () => {
                </Col>
 
                <Col xs={24} md={24} lg={8}>
-                   <Form.Item label="Timing" name="timing" >
-                    <TimePicker.RangePicker/>
-           
+                   <Form.Item label="Timings" name="timings" required>
+                    <TimePicker.RangePicker use12Hours format="HH:mm"/>
                    </Form.Item>
 
-
+               </Col>
+               <Col xs={24} md={24} lg={8}>
+               
+               
+               </Col>
+               <Col xs={24} md={24} lg={8}>
+               <button className='btn btn-primary form-btn' type='submit'>Submit</button>
                </Col>
 
-               
+              
            </Row>
-           <div className="d-flex justiy-content-end">
-            <button className='btn btn-primary' type='submit'>Submit</button>
-           </div>
+        
         </Form>
     </Layout>
   )
