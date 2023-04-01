@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage';
 import Login from './pages/Login';
 import Notification from './pages/Notification';
 import Register from './pages/Register';
+import Profile from './pages/doctor/Profile';
 
 
 function App() {
@@ -43,6 +44,13 @@ function App() {
     element={
     <ProtectedRoute>
       <Users/>
+    </ProtectedRoute>
+   }/>
+
+<Route path='/doctor/profile/:id' 
+    element={
+    <ProtectedRoute>
+      <Profile/>
     </ProtectedRoute>
    }/>
    <Route path='/notification' 

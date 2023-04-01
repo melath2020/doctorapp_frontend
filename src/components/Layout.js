@@ -5,6 +5,9 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AdminMenu, UserMenu } from "../Data/data";
 import '../styles/LayoutStyles.css';
 
+
+
+
 const Layout = ({children}) => {
 const {user}= useSelector(state=>state.user)
 const location=useLocation()
@@ -15,8 +18,31 @@ const handleLogout =()=>{
   message.success('Logout Successull')
   navigate('/login')
 }
+
+// doctor-menu
+const doctorMenu=[
+  {
+      name:'Home',
+      path:'/',
+      icon:'fa-sharp fa-regular fa-house'
+  },
+  {
+      name:'Appoinments',
+      path:'/appointments',
+      icon:'fa-solid fa-list'
+  },
+ 
+  {
+      name:'Profile',
+      path:`/doctor/profile/${user?._id}`,
+      icon:'fa-solid fa-user'
+  },
+
+]
+
+
 // Rendering Menu list
-const SidebarMenu= user?.isAdmin? AdminMenu : UserMenu
+const SidebarMenu= user?.isAdmin? AdminMenu : user?.isDoctor? doctorMenu :UserMenu
   return (
     <div className="main">
       <div className="layout">
