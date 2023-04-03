@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Notification from './pages/Notification';
 import Register from './pages/Register';
 import Profile from './pages/doctor/Profile';
+import BookingPage from './pages/BookingPage';
 
 
 function App() {
@@ -51,6 +52,12 @@ function App() {
     element={
     <ProtectedRoute>
       <Profile/>
+    </ProtectedRoute>
+   }/>
+   <Route path='/doctor/book-appointment/:doctorId' 
+    element={
+    <ProtectedRoute>
+      <BookingPage/>
     </ProtectedRoute>
    }/>
    <Route path='/notification' 
