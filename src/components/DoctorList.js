@@ -22,10 +22,10 @@ const DoctorList = ({doctor}) => {
                 <b>Fees</b>
                 {doctor.feesPercunsaltation}
             </p>
-            {/* <p>
+            <p>
                 <b>Timings</b>
                 {doctor.timings}
-            </p> */}
+            </p>
         </div>
     </div>
     </>
